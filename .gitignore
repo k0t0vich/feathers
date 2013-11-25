@@ -1,6 +1,5 @@
 .DS_Store
 Thumbs.db
-*.swc
 *.stackdump
 ._*
 *.local.properties
@@ -21,3 +20,5 @@ html-template/
 .idea/
 archive/
 *.lnk
+source/feathers/themes/
+source/assets/
