@@ -7,7 +7,7 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.core
 {
-	import starling.events.Event;
+	import flash.events.IEventDispatcher;
 
 	/**
 	 * Public properties and functions from <code>starling.events.EventDispatcher</code>
@@ -18,36 +18,9 @@ package feathers.core
 	 *
 	 * @see starling.events.EventDispatcher
 	 */
-	public interface IFeathersEventDispatcher
+	public interface IFeathersEventDispatcher extends IEventDispatcher
 	{
-		/**
-		 * @see starling.events.EventDispatcher#addEventListener()
-		 */
-		function addEventListener(type:String, listener:Function):void;
-
-		/**
-		 * @see starling.events.EventDispatcher#removeEventListener()
-		 */
-		function removeEventListener(type:String, listener:Function):void;
-
-		/**
-		 * @see starling.events.EventDispatcher#removeEventListeners()
-		 */
-		function removeEventListeners(type:String = null):void;
-
-		/**
-		 * @see starling.events.EventDispatcher#dispatchEvent()
-		 */
-		function dispatchEvent(event:Event):void;
-
-		/**
-		 * @see starling.events.EventDispatcher#dispatchEventWith()
-		 */
 		function dispatchEventWith(type:String, bubbles:Boolean = false, data:Object = null):void;
 
-		/**
-		 * @see starling.events.EventDispatcher#hasEventListener()
-		 */
-		function hasEventListener(type:String):Boolean;
 	}
 }

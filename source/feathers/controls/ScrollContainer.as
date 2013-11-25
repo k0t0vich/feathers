@@ -7,13 +7,14 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls
 {
+	import flash.events.Event;
+	
 	import feathers.controls.supportClasses.LayoutViewPort;
 	import feathers.layout.ILayout;
 	import feathers.layout.IVirtualLayout;
-
+	
 	import starling.display.DisplayObject;
 	import starling.display.DisplayObjectContainer;
-	import starling.events.Event;
 
 	/**
 	 * Dispatched when the container is scrolled.
@@ -387,12 +388,13 @@ package feathers.controls
 		/**
 		 * @private
 		 */
-		override public function dispatchEvent(event:Event):void
+		override public function dispatchEvent(event:Event):Boolean
 		{
 			const oldDisplayListBypassEnabled:Boolean = this.displayListBypassEnabled;
 			this.displayListBypassEnabled = true;
-			super.dispatchEvent(event);
+			var result:Boolean = super.dispatchEvent(event);
 			this.displayListBypassEnabled = oldDisplayListBypassEnabled;
+			return result;
 		}
 
 		/**
