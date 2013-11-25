@@ -2,6 +2,10 @@
 
 Noteworthy changes in official releases of [Feathers](http://feathersui.com/).
 
+## 1.2.0-k0t0vich
+
+* Scroller, IFeathersEventDispatcher : Implements IEventDispatcher for using k0t0vich-Starling-Framework
+
 ## 1.2.0
 
 * New Component: Alert
