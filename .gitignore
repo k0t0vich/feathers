@@ -22,3 +22,5 @@ archive/
 *.lnk
 source/feathers/themes/
 source/assets/
+
+/bin/*.swc
