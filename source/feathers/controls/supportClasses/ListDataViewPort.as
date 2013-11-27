@@ -7,6 +7,10 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls.supportClasses
 {
+	import flash.errors.IllegalOperationError;
+	import flash.geom.Point;
+	import flash.utils.Dictionary;
+	
 	import feathers.controls.List;
 	import feathers.controls.Scroller;
 	import feathers.controls.renderers.IListItemRenderer;
@@ -22,11 +26,7 @@ package feathers.controls.supportClasses
 	import feathers.layout.IVirtualLayout;
 	import feathers.layout.LayoutBoundsResult;
 	import feathers.layout.ViewPortBounds;
-
-	import flash.errors.IllegalOperationError;
-	import flash.geom.Point;
-	import flash.utils.Dictionary;
-
+	
 	import starling.display.DisplayObject;
 	import starling.events.Event;
 	import starling.events.EventDispatcher;
@@ -1034,8 +1034,9 @@ package feathers.controls.supportClasses
 			this.invalidate(INVALIDATION_FLAG_DATA);
 		}
 
-		private function dataProvider_addItemHandler(event:Event, index:int):void
+		private function dataProvider_addItemHandler(event:Event):void
 		{
+			var index:int = int(event.data);
 			var selectionChanged:Boolean = false;
 			const newIndices:Vector.<int> = new <int>[];
 			const indexCount:int = this._selectedIndices.length;
@@ -1062,8 +1063,9 @@ package feathers.controls.supportClasses
 			layout.addToVariableVirtualCacheAtIndex(index);
 		}
 
-		private function dataProvider_removeItemHandler(event:Event, index:int):void
+		private function dataProvider_removeItemHandler(event:Event):void
 		{
+			var index:int = int(event.data);
 			var selectionChanged:Boolean = false;
 			const newIndices:Vector.<int> = new <int>[];
 			const indexCount:int = this._selectedIndices.length;
@@ -1097,8 +1099,9 @@ package feathers.controls.supportClasses
 			layout.removeFromVariableVirtualCacheAtIndex(index);
 		}
 
-		private function dataProvider_replaceItemHandler(event:Event, index:int):void
+		private function dataProvider_replaceItemHandler(event:Event):void
 		{
+			var index:int = int(event.data);
 			const indexOfIndex:int = this._selectedIndices.getItemIndex(index);
 			if(indexOfIndex >= 0)
 			{
@@ -1125,8 +1128,9 @@ package feathers.controls.supportClasses
 			layout.resetVariableVirtualCache();
 		}
 
-		private function dataProvider_updateItemHandler(event:Event, index:int):void
+		private function dataProvider_updateItemHandler(event:Event):void
 		{
+			var index:int = int(event.data);
 			const item:Object = this._dataProvider.getItemAt(index);
 			const renderer:IListItemRenderer = IListItemRenderer(this._rendererMap[item]);
 			if(!renderer)

@@ -897,10 +897,10 @@ package feathers.controls
 		/**
 		 * @private
 		 */
-		protected function buttonsFooter_triggeredHandler(event:Event, data:Object):void
+		protected function buttonsFooter_triggeredHandler(event:Event):void
 		{
 			this.removeFromParent();
-			this.dispatchEventWith(Event.CLOSE, false, data);
+			this.dispatchEventWith(Event.CLOSE, false, event.data);
 			this.dispose();
 		}
 

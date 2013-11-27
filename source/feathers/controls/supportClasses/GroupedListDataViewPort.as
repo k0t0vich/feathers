@@ -2443,8 +2443,9 @@ package feathers.controls.supportClasses
 			this.invalidate(INVALIDATION_FLAG_DATA);
 		}
 
-		private function dataProvider_addItemHandler(event:Event, indices:Array):void
+		private function dataProvider_addItemHandler(event:Event):void
 		{
+			var indices:Array = event.data as Array;	
 			const layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
 			if(!layout || !layout.hasVariableItemDimensions)
 			{
@@ -2486,8 +2487,9 @@ package feathers.controls.supportClasses
 			}
 		}
 
-		private function dataProvider_removeItemHandler(event:Event, indices:Array):void
+		private function dataProvider_removeItemHandler(event:Event):void
 		{
+			var indices:Array = event.data as Array;
 			const layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
 			if(!layout || !layout.hasVariableItemDimensions)
 			{
@@ -2508,8 +2510,9 @@ package feathers.controls.supportClasses
 			}
 		}
 
-		private function dataProvider_replaceItemHandler(event:Event, indices:Array):void
+		private function dataProvider_replaceItemHandler(event:Event):void
 		{
+			var indices:Array = event.data as Array;
 			const layout:IVariableVirtualLayout = this._layout as IVariableVirtualLayout;
 			if(!layout || !layout.hasVariableItemDimensions)
 			{
@@ -2540,8 +2543,9 @@ package feathers.controls.supportClasses
 			layout.resetVariableVirtualCache();
 		}
 
-		private function dataProvider_updateItemHandler(event:Event, indices:Array):void
+		private function dataProvider_updateItemHandler(event:Event):void
 		{
+			var indices:Array = event.data as Array;
 			var groupIndex:int = indices[0] as int;
 			if(indices.length > 1) //updating a single item
 			{

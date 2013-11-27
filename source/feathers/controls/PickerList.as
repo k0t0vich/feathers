@@ -1252,17 +1252,17 @@ package feathers.controls
 		/**
 		 * @private
 		 */
-		protected function list_rendererAddHandler(event:Event, renderer:IListItemRenderer):void
+		protected function list_rendererAddHandler(event:Event):void
 		{
-			renderer.addEventListener(Event.TRIGGERED, renderer_triggeredHandler);
+			(event.data as IListItemRenderer).addEventListener(Event.TRIGGERED, renderer_triggeredHandler);
 		}
 
 		/**
 		 * @private
 		 */
-		protected function list_rendererRemoveHandler(event:Event, renderer:IListItemRenderer):void
+		protected function list_rendererRemoveHandler(event:Event ):void
 		{
-			renderer.removeEventListener(Event.TRIGGERED, renderer_triggeredHandler);
+			(event.data as IListItemRenderer).removeEventListener(Event.TRIGGERED, renderer_triggeredHandler);
 		}
 
 		/**

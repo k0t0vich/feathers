@@ -62,14 +62,15 @@ package feathers.examples.youtube
 			this._transitionManager.duration = 0.4;
 		}
 
-		private function mainMenuScreen_listVideosHandler(event:Event, selectedItem:VideoFeed):void
+		private function mainMenuScreen_listVideosHandler(event:Event):void
 		{
-			this._model.selectedList = selectedItem;
+			this._model.selectedList = VideoFeed(event.data);
 			this.showScreen(LIST_VIDEOS);
 		}
 
-		private function listVideos_showVideoDetails(event:Event, selectedItem:VideoDetails):void
+		private function listVideos_showVideoDetails(event:Event):void
 		{
+			var selectedItem:VideoDetails = event.data as VideoDetails;
 			this._model.selectedVideo = selectedItem;
 			this.showScreen(VIDEO_DETAILS);
 		}

@@ -28,9 +28,9 @@ package feathers.controls
 	 *     { label: "No" },
 	 *     { label: "Cancel" },
 	 * ]);
-	 * group.addEventListener( Event.TRIGGERED, function( event:Event, data:Object ):void
+	 * group.addEventListener( Event.TRIGGERED, function( event:Event ):void
 	 * {
-	 *    trace( "The button with label \"" + data.label + "\" was triggered." );
+	 *    trace( "The button with label \"" + event.data.label + "\" was triggered." );
 	 * }</listing>
 	 *
 	 * @eventType starling.events.Event.TRIGGERED

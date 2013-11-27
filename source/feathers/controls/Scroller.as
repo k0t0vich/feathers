@@ -7,6 +7,11 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.controls
 {
+	import flash.events.MouseEvent;
+	import flash.geom.Point;
+	import flash.geom.Rectangle;
+	import flash.utils.getTimer;
+	
 	import feathers.controls.supportClasses.IViewPort;
 	import feathers.core.FeathersControl;
 	import feathers.core.PropertyProxy;
@@ -16,12 +21,7 @@ package feathers.controls
 	import feathers.utils.math.roundDownToNearest;
 	import feathers.utils.math.roundToNearest;
 	import feathers.utils.math.roundUpToNearest;
-
-	import flash.events.MouseEvent;
-	import flash.geom.Point;
-	import flash.geom.Rectangle;
-	import flash.utils.getTimer;
-
+	
 	import starling.animation.Transitions;
 	import starling.animation.Tween;
 	import starling.core.Starling;
@@ -4394,8 +4394,9 @@ package feathers.controls
 		/**
 		 * @private
 		 */
-		protected function exclusiveTouch_changeHandler(event:Event, touchID:int):void
+		protected function exclusiveTouch_changeHandler(event:Event):void
 		{
+			var touchID:int = int(event.data);
 			if(this._touchPointID < 0 || this._touchPointID != touchID || this._isDraggingHorizontally || this._isDraggingVertically)
 			{
 				return;
@@ -4575,7 +4576,8 @@ package feathers.controls
 			Starling.current.nativeStage.addEventListener(MouseEvent.MOUSE_WHEEL, nativeStage_mouseWheelHandler, false, 0, true);
 			Starling.current.nativeStage.addEventListener("orientationChange", nativeStage_orientationChangeHandler, false, 0, true);
 		}
-
+		
+		
 		/**
 		 * @private
 		 */

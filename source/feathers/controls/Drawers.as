@@ -3172,8 +3172,9 @@ package feathers.controls
 		/**
 		 * @private
 		 */
-		protected function exclusiveTouch_changeHandler(event:Event, touchID:int):void
+		protected function exclusiveTouch_changeHandler(event:Event ):void
 		{
+			var touchID:int = int(event.data);
 			if(this.touchPointID < 0 || this.touchPointID != touchID || this._isDragging)
 			{
 				return;

@@ -1316,8 +1316,9 @@ package feathers.controls
 		/**
 		 * @private
 		 */
-		protected function dataProvider_addItemHandler(event:Event, index:int):void
+		protected function dataProvider_addItemHandler(event:Event):void
 		{
+			var index:int = int(event.data);
 			if(this.toggleGroup && this.toggleGroup.selectedIndex >= index)
 			{
 				//let's keep the same item selected
@@ -1330,8 +1331,9 @@ package feathers.controls
 		/**
 		 * @private
 		 */
-		protected function dataProvider_removeItemHandler(event:Event, index:int):void
+		protected function dataProvider_removeItemHandler(event:Event):void
 		{
+			var index:int = int(event.data);
 			if(this.toggleGroup && this.toggleGroup.selectedIndex > index)
 			{
 				//let's keep the same item selected
@@ -1359,16 +1361,18 @@ package feathers.controls
 		/**
 		 * @private
 		 */
-		protected function dataProvider_replaceItemHandler(event:Event, index:int):void
+		protected function dataProvider_replaceItemHandler(event:Event):void
 		{
+			var index:int = int(event.data);
 			this.invalidate(INVALIDATION_FLAG_DATA);
 		}
 
 		/**
 		 * @private
 		 */
-		protected function dataProvider_updateItemHandler(event:Event, index:int):void
+		protected function dataProvider_updateItemHandler(event:Event):void
 		{
+			var index:int = int(event.data);
 			this.invalidate(INVALIDATION_FLAG_DATA);
 		}
 	}
